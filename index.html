@@ -21,6 +21,19 @@ var parts;
 var q, r;
 var j;
   
-document.write('Optimal potential for testing (assuming no dilution) is '+s);
-document.write('Optimal');
+document.write('Optimal potential for testing (assuming no dilution) is '+s+'\n\n');
+
+s = poolsize(cir(i,t));
+parts = ceil(t/s);
+q = floor(t/parts);
+r = t%parts;
+	
+for(j=0;j<parts;j++){
+	if(r) {
+		document.write(q+1+'\t';
+		r--;
+	}
+	else document.write(q+'\t');
+}
+	
 </script> 
