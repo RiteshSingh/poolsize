@@ -1,19 +1,26 @@
 ---
 layout: default
 ---
-
-<head>
-<title>Pool Size Calculator</title>
-</head>
   
 <h1>Pool Size Calculator</h1>
-<h2>Pool Size Calculator</h2>
-<h3>Pool Size Calculator</h3>
-<h4>Pool Size Calculator</h4>
-<h5>Pool Size Calculator</h5>
-<h6>Pool Size Calculator</h6>
 
-<script> 
-// using document.write 
-document.write('Hello World'); 
+<script>
+  
+function poolsize (i) { 
+	return Math.floor(Math.log(0.5)/Math.log(1-i));
+}
+
+function cir(i, s){
+	return (i/(1-Math.pow((1-i),s)));
+}
+ 
+var i = 0.001;
+var t = 345;
+var s = poolsize(i);
+var parts;
+var q, r;
+var j;
+  
+document.write('Optimal potential for testing (assuming no dilution) is '+s);
+document.write('Optimal');
 </script> 
