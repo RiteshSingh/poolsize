@@ -1,15 +1,13 @@
 ---
 layout: default
 ---
-  
-<h1>Pool Size Calculator</h1>
 
-<h2>Test Positive Rate</h2> 
+<h1>Test Positive Rate</h1> 
 
-<p>The fraction of tests that are expected to come out as positive based on historical and other data. Use fraction instead of %.</p>
+<p>The fraction of tests that are expected to come out as positive based on historical and other data. Use fraction (say 0.02) instead of % (say 2%).</p>
 
-<h2>Pool Size (Optional)</h2>
-<
+<h1>Pool Size (Optional)</h1>
+<p>Current size of the pool</p>
 
 <input type="text" placeholder="Test Positive Rate" id="i">
 <input type="text" placeholder="Pool Size (Optional)" id="t">
@@ -38,7 +36,7 @@ function main () {
 	var j;
 	
 	var out = document.getElementById("result");
-	out.innerHTML = 'Optimal potential for testing (assuming no dilution) is '+s;
+	out.innerHTML = 'Optimal number of samples that can be pooled for testing (assuming no dilution due to pooling) is <strong>'+s+</strong>;
 	out.appendChild(document.createElement('br'));
 	out.appendChild(document.createElement('br'));
 
