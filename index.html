@@ -4,6 +4,10 @@ layout: default
   
 <h1>Pool Size Calculator</h1>
 
+<input type="text" placeholder="i" id="i">
+<input type="text" placeholder="t" id="t">
+<button type="button" onclick="main();">Get Value</button>
+
 <script>
   
 function poolsize (i) { 
@@ -13,29 +17,33 @@ function poolsize (i) {
 function cir (i, s) {
 	return (i/(1-Math.pow((1-i),s)));
 }
+	
+function main () {
  
-var i = 0.001;
-var t = 345;
-var s = poolsize(i);
-var parts;
-var q, r;
-var j;
-  
-document.write('Optimal potential for testing (assuming no dilution) is '+s);
+	var i = document.getElementById("i").value;
+	var t = document.getElementById("t").value;;
+	var s = poolsize(i);
+	var parts;
+	var q, r;
+	var j;
 
-s = poolsize(cir(i,t));
-parts = Math.ceil(t/s);
-q = Math.floor(t/parts);
-r = t%parts;
-	
-document.write('s='+s+' parts='+parts+' q='+q+' r='+r);
-	
-for (j=0;j<parts;j++) {
-	if (r != 0) {
-		document.write(q+1+'\t');
-		r--;
+	document.write('Optimal potential for testing (assuming no dilution) is '+s);
+
+	s = poolsize(cir(i,t));
+	parts = Math.ceil(t/s);
+	q = Math.floor(t/parts);
+	r = t%parts;
+
+	document.write('s='+s+' parts='+parts+' q='+q+' r='+r);
+
+	for (j=0;j<parts;j++) {
+		if (r != 0) {
+			document.write(q+1+'\t');
+			r--;
+		}
+		else document.write(q+'\t');
 	}
-	else document.write(q+'\t');
+	
 }
 	
 </script> 
