@@ -26,22 +26,26 @@ function main () {
 	var parts;
 	var q, r;
 	var j;
+	
+	var out = document.createElement('div');
+	out.textContent = 'Optimal potential for testing (assuming no dilution) is '+s;
+	document.body.appendChild(out);
 
-	document.write('Optimal potential for testing (assuming no dilution) is '+s);
+	//document.write('Optimal potential for testing (assuming no dilution) is '+s);
 
 	s = poolsize(cir(i,t));
 	parts = Math.ceil(t/s);
 	q = Math.floor(t/parts);
 	r = t%parts;
 
-	document.write('s='+s+' parts='+parts+' q='+q+' r='+r);
+	//document.write('s='+s+' parts='+parts+' q='+q+' r='+r);
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
-			document.write(q+1+'\t');
+			//document.write(q+1+'\t');
 			r--;
 		}
-		else document.write(q+'\t');
+		//else document.write(q+'\t');
 	}
 	
 }
