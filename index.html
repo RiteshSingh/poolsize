@@ -50,7 +50,11 @@ function main () {
 			out.innerHTML += q+1+'\t';			
 			r--;
 		}
-		//else document.write(q+'\t');
+		else {
+			out.appendChild(document.createElement('br'));
+			out.appendChild(document.createElement('br'));
+			out.innerHTML += q+'\t';
+		}
 	}
 	
 }
