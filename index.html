@@ -21,17 +21,17 @@ var parts;
 var q, r;
 var j;
   
-document.write('Optimal potential for testing (assuming no dilution) is '+s+'\n \n');
+document.write('Optimal potential for testing (assuming no dilution) is '+s+);
 
 s = poolsize(cir(i,t));
-	document.write('still works 1 \n \n');
+	document.write('still works 1');
 parts = ceil(t/s);
-	document.write('still works 2 \n \n');
+	document.write('still works 2');
 q = floor(t/parts);
-	document.write('still works 3 \n \n');
+	document.write('still works 3');
 r = t%parts;
 	
-document.write("s="+s+" parts="+parts+" q="+q+" r="+r+"\n\n");
+document.write("s="+s+" parts="+parts+" q="+q+" r="+r);
 	
 /*for(j=0;j<parts;j++){
 	if(r) {
