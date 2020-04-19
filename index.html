@@ -30,8 +30,8 @@ function main () {
 	var j;
 	
 	var out = document.getElementById("result");
-	out.textContent = 'Optimal potential for testing (assuming no dilution) is '+s;
-	//out.innerHTML = 'Optimal potential for testing (assuming no dilution) is '+s;
+	//out.textContent = 'Optimal potential for testing (assuming no dilution) is '+s;
+	out.innerHTML = 'Optimal potential for testing (assuming no dilution) is '+s;
 	//document.write('Optimal potential for testing (assuming no dilution) is '+s);
 
 	s = poolsize(cir(i,t));
@@ -39,8 +39,8 @@ function main () {
 	q = Math.floor(t/parts);
 	r = t%parts;
 
-	out.appendChild(document.createElement("br"));
-	out.textContent += 's='+s+' parts='+parts+' q='+q+' r='+r;
+	//out.appendChild(document.createElement("br"));
+	out.innerHTML += 's='+s+' parts='+parts+' q='+q+' r='+r;
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
