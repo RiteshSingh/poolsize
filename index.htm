@@ -39,7 +39,7 @@ function main () {
 	var j;
 	
 	var out = document.getElementById("result");
-	out.innerHTML = 'Optimal number of samples that can be pooled for testing (assuming no dilution due to pooling) is <strong>'+s+</strong>;
+	out.innerHTML = 'Optimal number of samples that can be pooled for testing (assuming no dilution due to pooling) is <strong>'+s+'</strong>';
 	out.appendChild(document.createElement('br'));
 	out.appendChild(document.createElement('br'));
 
@@ -52,7 +52,6 @@ function main () {
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
-			out.appendChild(document.createElement('br'));
 			out.innerHTML += q+1+' ';			
 			r--;
 		}
