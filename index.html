@@ -8,6 +8,8 @@ layout: default
 <input type="text" placeholder="t" id="t">
 <button type="button" onclick="main();">Get Value</button>
 
+<div id="result"></div>
+
 <script>
   
 function poolsize (i) { 
@@ -27,10 +29,9 @@ function main () {
 	var q, r;
 	var j;
 	
-	var out = document.createElement('div');
+	var out = document.getElementById("result");
 	out.textContent = 'Optimal potential for testing (assuming no dilution) is '+s;
-	document.body.appendChild(out);
-
+	//out.innerHTML = 'Optimal potential for testing (assuming no dilution) is '+s;
 	//document.write('Optimal potential for testing (assuming no dilution) is '+s);
 
 	s = poolsize(cir(i,t));
