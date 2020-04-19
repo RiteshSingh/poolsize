@@ -6,11 +6,11 @@ layout: default
 
 <h2>Positive Test Rate</h2> 
 
-<p>The fraction of tests that are expected to come out as positive based on historical and other data. Use fraction (say 0.02) instead of % (say 2%).</p>
+<p>The fraction of tests that are expected to come out positive based on historical and other data. Use fraction (say 0.02) instead of % (say 2%).</p>
 
 <h2>Pool Size (Optional)</h2>
 
-<p>Current size of the pool for which optimal splitting is to be calculated, if the pooled test turns out positive.</p>
+<p>Size of the pool for which optimal sub-pooling is to be calculated, if the pooled test is positive.</p>
 
 <h1>Calculator</h1>
 
@@ -42,15 +42,15 @@ function main () {
 	
 	var out = document.getElementById("result");
 	out.innerHTML = '<h3>Optimal number of samples that can be pooled for testing is <strong>'+s+'</strong>, assuming the Positive Test Rate to be <strong>'+i+'</strong> and assuming no dilution due to pooling.</h3>';
-	out.appendChild(document.createElement('br'));
-	out.appendChild(document.createElement('br'));
+	//out.appendChild(document.createElement('br'));
+	//out.appendChild(document.createElement('br'));
 
 	s = poolsize(cir(i,t));
 	parts = Math.ceil(t/s);
 	q = Math.floor(t/parts);
 	r = t%parts;
 
-	out.innerHTML += 's='+s+' parts='+parts+' q='+q+' r='+r;
+	out.innerHTML += '<h3>If a pool consisting of <strong>'+t+' samples</strong> is tested positive, it should be further sub-divided into <strong>'+parts+'</strong> pools of following sizes, assuming the Positive Test Rate to be <strong>'+i+'</strong>:</h3>';
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
