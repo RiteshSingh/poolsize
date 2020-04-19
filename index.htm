@@ -4,7 +4,7 @@ layout: default
 
 <h1>Inputs</h1>
 
-<h2>Test Positive Rate</h2> 
+<h2>Positive Test Rate</h2> 
 
 <p>The fraction of tests that are expected to come out as positive based on historical and other data. Use fraction (say 0.02) instead of % (say 2%).</p>
 
@@ -12,7 +12,7 @@ layout: default
 
 <p>Current size of the pool for which optimal splitting is to be calculated, if the pooled test turns out positive.</p>
 
-<input type="text" placeholder="Test Positive Rate" id="i">
+<input type="text" placeholder="Positive Test Rate" id="i">
 <input type="text" placeholder="Pool Size (Optional)" id="t">
 <button type="button" onclick="main();">Calculate</button>
 <br><br>
@@ -39,7 +39,7 @@ function main () {
 	var j;
 	
 	var out = document.getElementById("result");
-	out.innerHTML = 'Optimal number of samples that can be pooled for testing (assuming no dilution due to pooling) is <strong>'+s+'</strong>';
+	out.innerHTML = '<h3>Optimal number of samples that can be pooled for testing, assuming the Positive Test Rate to be '+i+'and assuming no dilution due to pooling, is <strong>'+s+'</strong>.</h3>';
 	out.appendChild(document.createElement('br'));
 	out.appendChild(document.createElement('br'));
 
