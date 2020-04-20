@@ -52,16 +52,19 @@ function main () {
 
 	out.innerHTML += '<h3>If a pool consisting of <b>'+t+' samples</b> is tested positive, it should be further sub-divided into <b>'+parts+'</b> pools of following sizes, assuming the Positive Test Rate to be <b>'+i+'</b>:</h3>';
 
+	out.innerHTML += '<h1>';
+	
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
-			out.innerHTML += '<h1>'+(q+1)+'</h1> ';			
+			out.innerHTML += (q+1)+' ';			
 			r--;
 		}
 		else {
-			out.innerHTML += '<h1>'+q+'</h1> ';
+			out.innerHTML += q+' ';
 		}
 	}
 	
+	out.innerHTML += '</h1>';	
 }
 	
 </script> 
