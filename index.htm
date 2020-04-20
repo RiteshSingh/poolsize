@@ -43,7 +43,7 @@ function main () {
 	var j;
 	
 	var out = document.getElementById("result");
-	out.innerHTML = '<h3>Optimal number of samples that can be pooled for testing is <b>'+s+'</b>, assuming the Positive Test Rate to be <b>'+i+'</b> and assuming no dilution due to pooling.</h3>';
+	out.innerHTML = '<h3>Optimal number of samples that can be pooled for testing is <b>'+s+'</b>, assuming the Positive Test Rate to be <b>'+i+'</b>, and assuming no dilution due to pooling.</h3>';
 
 	s = poolsize(cir(i,t));
 	parts = Math.ceil(t/s);
