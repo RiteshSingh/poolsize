@@ -6,7 +6,7 @@ layout: default
 
 <h2>Positive Test Rate (<1): To calculate Optimal Pool Size</h2> 
 
-<p>Input the fraction of tests that are expected to come out positive based on historical and other data. Use fraction (say 0.02) instead of % (say 2%).</p>
+<p>Input the fraction of tests that are expected to come out positive, based on historical and other data. Use fraction (say 0.02) instead of % (say 2%).</p>
 
 <h2>Pool Size (Optional): To calculate Bayesian Optimal Sub-Pooling</h2>
 
@@ -52,17 +52,15 @@ function main () {
 
 	out.innerHTML += '<h3>If a pool consisting of <b>'+t+' samples</b> is tested positive, it should be further sub-divided into <b>'+parts+'</b> pools of following sizes, assuming the Positive Test Rate to be <b>'+i+'</b>:</h3>';
 
-	out.innerHTML += '<b>';	
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
-			out.innerHTML += (q+1)+' ';			
+			out.innerHTML += '<b>'+(q+1)+'</b> ';			
 			r--;
 		}
 		else {
-			out.innerHTML += q+' ';
+			out.innerHTML += '<b>'+q+'</b> ';
 		}
 	}	
-	out.innerHTML += '</b>';	
 }
 	
 </script> 
