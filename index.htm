@@ -17,7 +17,10 @@ layout: default
 <input type="text" placeholder="Positive Test Rate (<1)" id="i">
 <input type="text" placeholder="Pool Size (Optional)" id="t">
 <button type="button" onclick="main();">Calculate</button>
-<br><br>
+	
+<h1>Results</h1>
+	
+<h2>Optimal Pool Size</h2>
 
 <div id="result"></div>
 
@@ -45,6 +48,8 @@ function main () {
 	var out = document.getElementById("result");
 	out.innerHTML = '<h3>Optimal number of samples that can be pooled for testing is <b>'+s+'</b>, assuming the Positive Test Rate to be <b>'+i+'</b>, and assuming no dilution due to pooling.</h3>';
 
+	out.innerHTML += '<h2>Baysian Optimal Sub-Pooling</h2>';
+	
 	s = poolsize(cir(i,t));
 	parts = Math.ceil(t/s);
 	q = Math.floor(t/parts);
