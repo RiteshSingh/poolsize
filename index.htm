@@ -58,7 +58,7 @@ function main () {
 	r = t%parts;
 
 	var out2 = document.getElementById("result2");
-	out2.innerHTML += '<h3>If a pool consisting of <b>'+t+' samples</b> is tested positive, it should be further sub-divided into <b>'+parts+'</b> pools of following sizes, assuming the Positive Test Rate to be <b>'+i+'</b>:</h3>';
+	out2.innerHTML = '<h3>If a pool consisting of <b>'+t+' samples</b> is tested positive, it should be further sub-divided into <b>'+parts+'</b> pools of following sizes, assuming the Positive Test Rate to be <b>'+i+'</b>:</h3>';
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
