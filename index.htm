@@ -2,81 +2,122 @@
 layout: default
 ---
 
-<h1>Inputs</h1>
+<h1>Positive Probability Limited Optimal Pool Size Calculator</h1>
+<p>This calculates the optimal pool size based on the desired probability of positive pooled tests, and the probability of positive un-pooled tests. Dilution due to pooling is ignored for simplicity.</p> 
 
-<h2>Positive Test Rate (<1): To calculate Optimal Pool Size</h2> 
+<h2>Inputs</h2>
 
-<p>Input the fraction of tests that are expected to come out positive, based on historical and other data. Use fraction (say 0.02) instead of % (say 2%).</p>
+<h3>Target Pooled Test Positive Probability (<1)</h3>
+<p>Input the desired probability of positive pooled tests. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
 
-<h2>Pool Size (Optional): To calculate Bayesian Optimal Sub-Pool Size</h2>
+<p>The default value of the desired probability is 0.5, meaning that you want the largest pool size such that at least 50% of the pooled tests are expected to be positive.</p>
 
-<p>Input the size of the pool for which Bayesian Optimal Sub-Pool Size is to be calculated, if the earlier pooled test is positive.</p>
+<h3>Un-pooled Test Positive Probability (<1)</h3> 
 
-<h1>Calculator</h1>
+<p>Input the probability of positive un-pooled tests, based on historical and other data. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
 
-<b>Target Positive Rate (max)</b>
+<h2>Calculator</h2>
+
+<b>Target Pooled Test Positive Probability (<1)</b>
 <br>
-<input type="text" placeholder="Target Positive Rate (max)" id="o" align="middle">
+<input type="text" placeholder="Input 0.5 for 50%" id="p" value="0.5">
+<br><br>
+<b>Un-Pooled Test Positive Probability (<1)</b>
 <br>
-<b>Positive Test Rate (<1)</b>
-<br>
-<input type="text" placeholder="Positive Test Rate (<1)" id="i" align="middle">
-<br>
-<b>Pool Size (Optional)</b>
-<br>
-<input type="text" placeholder="Pool Size (Optional)" id="t" align="middle">
-<br>
+<input type="text" placeholder="Input 0.1 for 10%" id="i">
+<br><br>
 <button type="button" onclick="main();">Calculate</button>
-	
-<h1>Results</h1>
-	
-<h2>Optimal Pool Size</h2>
+
+<h2>Result</h2>
 
 <div id="result"></div>
+
+<hr>
+
+<h1>Bayesian Positive Probability Limited Optimal Sub-Pool Size Calculator</h1>
+<p>This calculates the optimal sub-pool size if the current pool tests positive. It is based on the current pool size, the desired probability of positive sub-pooled tests, and the probability of positive un-pooled tests. Dilution due to pooling is ignored for simplicity.</p>
+
+<h2>Inputs</h2>
+
+<h3>Target Sub-Pooled Test Positive Probability (<1)</h3>
+<p>Input the desired probability of positive sub-pooled tests. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
+
+<p>The default value of the desired probability is 0.5, meaning that you want the largest sub-pool size such that at least 50% of the sub-pooled tests are expected to be positive.</p>
+
+<h3>Un-Pooled Test Positive Probability (<1)</h3> 
+
+<p>Input the probability of positive un-pooled tests, based on historical and other data. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
+
+<h3>Current Pool Size</h3>
+
+<p>Input the number of samples in the current pool, to be sub-pooled on testing postive.</p>
+
+<h2>Calculator</h2>
+
+<b>Target Sub-Pooled Test Positive Probability (<1)</b>
+<br>
+<input type="text" placeholder="Input 0.5 for 50%" id="p2" value="0.5">
+<br><br>
+<b>Un-Pooled Test Positive Probability (<1)</b>
+<br>
+<input type="text" placeholder="Input 0.1 for 10%" id="i2">
+<br><br>
+<b>Current Pool Size</b>
+<br>
+<input type="text" placeholder="Input a natural number" id="t2">
+<br><br>
+<button type="button" onclick="main2();">Calculate</button>
 	
-<h2>Bayesian Optimal Sub-Pool Size</h2>
+<h2>Result</h2>
 	
 <div id="result2"></div>
 
 <script>
   
-function poolsize (i) {
-	var res = Math.floor(Math.log(0.5)/Math.log(1-i));
+function poolsize (p,i) {
+	var res = Math.floor(Math.log(1-p)/Math.log(1-i));
 	if (res > 1) return res;
 	else return 1;
 }
 
-function cir (i, s) {
-	return (i/(1-Math.pow((1-i),s)));
+function subpoolsize (p2,i2,t2) {
+	var k;
+	for (k=0;k<t2;k++) if ((1-Math.pow((1-i2),k))/(1-Math.pow((1-i2),t2))>p2) break;
+	if (k>2) return (k-1);
+	else return 1;
 }
 	
-function main () {
- 
+function main () { 
+	var p = document.getElementById("p").value;
 	var i = document.getElementById("i").value;
-	var t = document.getElementById("t").value;;
-	var s = poolsize(i);
-	var parts;
-	var q, r;
-	var j;
+	var s = poolsize(p,i);
+	var outp = 1-Math.pow((1-i),s);
 	
 	var out = document.getElementById("result");
-	out.innerHTML = '<h3>Optimal number of samples that can be pooled for testing is <b>'+s+'</b>, assuming the Positive Test Rate to be <b>'+i+'</b>, and assuming no dilution due to pooling.</h3>';
-	
-	s = poolsize(cir(i,t));
-	parts = Math.ceil(t/s);
-	q = Math.floor(t/parts);
-	r = t%parts;
+	out.innerHTML = '<h3>Optimal pool size: <b>'+s+'</b> | Positive probability = <b>'+outp.toFixed(4)+'</b></h3>';	
+}
+
+function main2 () {
+	var p2 = document.getElementById("p2").value;
+	var i2 = document.getElementById("i2").value;
+	var t2 = document.getElementById("t2").value;
+	var	s2 = subpoolsize(p2,i2,t2);
+	var outp2 = (1-Math.pow((1-i2),s2))/(1-Math.pow((1-i2),t2));
+	var parts = Math.ceil(t2/s2);
+	var q = Math.floor(t2/parts);
+	var r = t2%parts;
+	var j;
 
 	var out2 = document.getElementById("result2");
-	out2.innerHTML = '<h3>If a pool consisting of <b>'+t+' samples</b> is tested positive, it should be further sub-divided into <b>'+parts+'</b> pools of following sizes, assuming the Positive Test Rate to be <b>'+i+'</b>:</h3>';
+	out2.innerHTML = '<h3>If a pool of <b>'+t2+' samples</b> is tested positive, sub-dividing it into <b>'+parts+'</b> pools of following sizes would make the sub-pooled test positive probability to be:</h3>';
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
-			out2.innerHTML += '<b>'+(q+1)+'</b> ';			
+			out2.innerHTML += '<h3>Optimal sub-pool '+(j+1)+' size: '+(q+1)+' | Positive probability = '+((1-Math.pow((1-i2),q+1))/(1-Math.pow((1-i2),t2))).toFixed(4)+'</h3>';			
 			r--;
 		}
 		else {
-			out2.innerHTML += '<b>'+q+'</b> ';
+			out2.innerHTML += '<h3>Optimal sub-pool '+(j+1)+' size: '+(q)+' | Positive probability = '+((1-Math.pow((1-i2),q))/(1-Math.pow((1-i2),t2))).toFixed(4)+'</h3>';
 		}
 	}	
 }
