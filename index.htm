@@ -109,7 +109,7 @@ function main2 () {
 	var j;
 
 	var out2 = document.getElementById("result2");
-	out2.innerHTML = '<h3>If a pool of <b>'+t2+' samples</b> is tested positive, sub-dividing it into <b>'+parts+'</b> pools of following sizes would make the sub-pooled test positive probability to be:</h3>';
+	out2.innerHTML = '<h3>If a pool of <b>'+t2+' samples</b> is tested positive, sub-dividing it into <b>'+parts+' pools</b> of following sizes would make the sub-pooled test positive probability to be:</h3>';
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
@@ -119,7 +119,7 @@ function main2 () {
 		else {
 			out2.innerHTML += '<h3>Optimal sub-pool '+(j+1)+' size: '+(q)+' | Positive probability = '+((1-Math.pow((1-i2),q))/(1-Math.pow((1-i2),t2))).toFixed(4)+'</h3>';
 		}
-	}
+	}	
 }
 	
 </script> 
