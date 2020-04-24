@@ -113,11 +113,11 @@ function main2 () {
 
 	for (j=0;j<parts;j++) {
 		if (r != 0) {
-			out2.innerHTML += '<h3>Optimal sub-pool '+(j+1)+' size: '+(q+1)+' | Positive probability = '+((1-Math.pow((1-i2),q+1))/(1-Math.pow((1-i2),t2))).toFixed(4)+'</h3>';			
+			out2.innerHTML += '<h3>Optimal sub-pool '+(j+1)+' size: <b>'+(q+1)+'</b> | Positive probability = <b>'+((1-Math.pow((1-i2),q+1))/(1-Math.pow((1-i2),t2))).toFixed(4)+'</b></h3>';			
 			r--;
 		}
 		else {
-			out2.innerHTML += '<h3>Optimal sub-pool '+(j+1)+' size: '+(q)+' | Positive probability = '+((1-Math.pow((1-i2),q))/(1-Math.pow((1-i2),t2))).toFixed(4)+'</h3>';
+			out2.innerHTML += '<h3>Optimal sub-pool '+(j+1)+' size: <b>'+(q)+'</b> | Positive probability = <b>'+((1-Math.pow((1-i2),q))/(1-Math.pow((1-i2),t2))).toFixed(4)+'</b></h3>';
 		}
 	}	
 }
