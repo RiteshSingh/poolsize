@@ -5,16 +5,16 @@ layout: default
 <h1>Positive Probability Limited Optimal Pool Size Calculator</h1>
 <p>This calculates the optimal pool size based on the desired probability of positive pooled tests, and the probability of positive un-pooled tests. Dilution due to pooling is ignored for simplicity.</p> 
 
-<h2>Inputs</h2>
+<h2>Input</h2>
 
 <h3>Target Pooled Test Positive Probability (<1)</h3>
-<p>Input the desired probability of positive pooled tests. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
+<p>Input the desired probability of positive pooled tests. Use decimal fraction (say 0.5) instead of % (say 50%).</p>
 
 <p>The default value of the desired probability is 0.5, meaning that you want the largest pool size such that at least 50% of the pooled tests are expected to be positive.</p>
 
 <h3>Un-pooled Test Positive Probability (<1)</h3> 
 
-<p>Input the probability of positive un-pooled tests, based on historical and other data. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
+<p>Input the probability of positive un-pooled tests, based on historical and other data. Use decimal fraction (say 0.1) instead of % (say 10%).</p>
 
 <h2>Calculator</h2>
 
@@ -37,16 +37,16 @@ layout: default
 <h1>Bayesian Positive Probability Limited Optimal Sub-Pool Size Calculator</h1>
 <p>This calculates the optimal sub-pool size if the current pool tests positive. It is based on the current pool size, the desired probability of positive sub-pooled tests, and the probability of positive un-pooled tests. Dilution due to pooling is ignored for simplicity.</p>
 
-<h2>Inputs</h2>
+<h2>Input</h2>
 
 <h3>Target Sub-pooled Test Positive Probability (<1)</h3>
-<p>Input the desired probability of positive sub-pooled tests. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
+<p>Input the desired probability of positive sub-pooled tests. Use decimal fraction (say 0.5) instead of % (say 50%).</p>
 
 <p>The default value of the desired probability is 0.5, meaning that you want the largest sub-pool size such that at least 50% of the sub-pooled tests are expected to be positive.</p>
 
 <h3>Un-pooled Test Positive Probability (<1)</h3> 
 
-<p>Input the probability of positive un-pooled tests, based on historical and other data. Use decimal fraction (say 0.02) instead of % (say 2%).</p>
+<p>Input the probability of positive un-pooled tests, based on historical and other data. Use decimal fraction (say 0.1) instead of % (say 10%).</p>
 
 <h3>Current Pool Size</h3>
 
@@ -71,6 +71,29 @@ layout: default
 <h2>Result</h2>
 	
 <div id="result2"></div>
+
+<hr>
+
+<h1>No Sub-Pooling Optimal Pool Size Calculator</h1>
+
+<p>This calculates the optimal pool size in cases where sub-pooling is not possible, either due to dilution, limited sample quantity, or due to other considerations.</p>
+
+<h2>Input</h2>
+
+<h3>Un-pooled Test Positive Probability (<1)</h3> 
+
+<p>Input the probability of positive un-pooled tests, based on historical and other data. Use decimal fraction (say 0.1) instead of % (say 10%).</p>
+
+<h2>Calculator</h2>
+
+<b>Un-pooled Test Positive Probability (<1)</b>
+<br>
+<input type="text" placeholder="Input 0.1 for 10%" id="i3">
+<button type="button" onclick="main3();">Calculate</button>
+
+<h2>Result</h2>
+	
+<div id="result3"></div>
 
 <script>
   
