@@ -1,4 +1,4 @@
-## Optimal Testing Pool Size Calculator
+## Optimal Testing Pool Size Web Calculator
 
 For pool testing of infectious diseases including COVID-19
 
