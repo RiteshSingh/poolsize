@@ -148,7 +148,7 @@ function main2 () {
 function main3 () {
 	var i3 = document.getElementById("i3").value;
 	var x = 2;
-	var pre = 2;
+	var pre = (Math.pow((1-i3),1)+(1-Math.pow((1-i3),1))*1)/1;
 	
 	while ((Math.pow((1-i3),x)+(1-Math.pow((1-i3),x))*x)/x<pre) {
 		pre = (Math.pow((1-i3),x)+(1-Math.pow((1-i3),x))*x)/x;
