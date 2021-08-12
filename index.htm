@@ -147,14 +147,14 @@ function main2 () {
 
 function main3 () {
 	var i3 = document.getElementById("i3").value;
-	var x = 2;
+	var x = 1;
 	var pre;
 	
-	for (pre=1;(Math.pow((1-i3),x)+(1-Math.pow((1-i3),x))*x)/x<pre;x++) pre = (Math.pow((1-i3),x)+(1-Math.pow((1-i3),x))*x)/x;
+	for (pre=2;(Math.pow((1-i3),x)+(1-Math.pow((1-i3),x))*x)/x<pre;x++) pre = (Math.pow((1-i3),x)+(1-Math.pow((1-i3),x))*x)/x;
 	
 	var out3 = document.getElementById("result3");
 	
-	if (pre<1) 	
+	if (x>1) 	
 		out3.innerHTML = '<h3>Optimal pool size: <b>'+(x-1)+'</b> | Positive probability = <b>'+(1-Math.pow((1-i3),(x-1))).toFixed(4)+'</b></h3>';	
 	else
 		out3.innerHTML = '<h3>Optimal pool size: <b>'+1+'</b> | Positive probability = <b>'+i3+'</b></h3>';
